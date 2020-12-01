@@ -9,47 +9,6 @@ import time
 from Motor import *
 from servo import *
 #-------------------------------------------------------------------------------
-def AzionaMotori(self,Cx, Cy, Area):
-    #print(" ---> CentroX: ", Cx, "   CentroY: ", Cy, "   Area: ", Area, "   Area Max Red: ", AREA_MAX_RED)
-    #definiamo i campi di azione
-    #1° quadrante
-    #if(Cx > 0 and Cx < (X_DIVISION+ISTERESI) and Cy > 0 and Cy < HEIGHT and Area < AREA_MAX_COLORE):
-    if(Cx > 0 and Cx < (X_DIVISION+ISTERESI) and Cy > 0 and Cy < HEIGHT):
-        #Motori a SX
-        print("Motori a Sx")
-        PWM.setMotorModel(-MOTOR_DUTY,-MOTOR_DUTY,MOTOR_DUTY,MOTOR_DUTY) #Left
-    
-    #2° quadrante
-    if(Cx > X_DIVISION and Cx < int(X_DIVISION*2) and Cy > 0 and Cy < HEIGHT and Area > AREA_MAX_COLORE):
-        #Motori Stop
-        print("Motori STOP")
-        #cv2.circle(frame, (int(WIDTH/2), int(HEIGHT/2)), int((WIDTH/3-ISTERESI)/2), (255, 0, 255), 2) #STOP - Zone
-        PWM.setMotorModel(0,0,0,0) #Stop
-    
-    #3° quadrante    
-    #if(Cx > (213-ISTERESI) and Cx < WIDTH and Cy > 0 and Cy < HEIGHT and Area < AREA_MAX_COLORE):
-    if(Cx > (213-ISTERESI) and Cx < WIDTH and Cy > 0 and Cy < HEIGHT):
-        #Motori a DX
-        print("Motori a Dx")
-        PWM.setMotorModel(MOTOR_DUTY,MOTOR_DUTY,-MOTOR_DUTY,-MOTOR_DUTY) #Right         
-  
-    """
-    #4° quadrante    
-    #if(Cx >= 0 and Cx <= WIDTH and Cy >=160 and Cy <= HEIGHT):
-    if(Cx >= 106 and Cx < 213 and Cy >= 0 and Cy <= HEIGHT and Area >= AREA_MAX_COLORE):
-        #Motori Indietro
-        print("Motori Indietro")
-        PWM.setMotorModel(-1000,-1000,-1000,-1000) #Back
-        time.sleep(20/1000)
-        PWM.setMotorModel(0,0,0,0) #Stop
-        time.sleep(10/1000)
-    """
-
-    if(Cx > (X_DIVISION+ISTERESI) and Cx < (int(X_DIVISION*2)-ISTERESI) and Cy > 0 and Cy < HEIGHT and Area < AREA_MAX_COLORE):
-        #Motori Avanti
-        print("Motori Avanti")
-        PWM.setMotorModel(MOTOR_DUTY,MOTOR_DUTY,MOTOR_DUTY,MOTOR_DUTY) #Forward
-    return
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 class ColorDetectionClass:   
@@ -232,7 +191,7 @@ class ColorDetectionClass:
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------
-TrovaRosso=ColorDetectionClass(TYPE_COLOR='R', frameNumber=0)
+TrovaRosso=ColorDetectionClass(TYPE_COLOR='R', frameNumber=1)
 TrovaVerde=ColorDetectionClass(TYPE_COLOR='G',  frameNumber=2)
 TrovaBlue=ColorDetectionClass(TYPE_COLOR='B', frameNumber=3)
 #print(TrovaRosso)
