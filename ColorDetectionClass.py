@@ -1,5 +1,7 @@
 #https://www.learnopencv.com/find-center-of-blob-centroid-using-opencv-cpp-python/
 
+#Version 2.0
+
 # Python program for Detection of a  
 # specific color(blue here) using OpenCV with Python 
 import cv2 
